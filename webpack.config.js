@@ -5,10 +5,10 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    homepage: './src/homepage.js',
-    features: './src/features.js',
-    aboutUs: './src/aboutUs.js',
-    menu: './src/menu.js',
+    // homepage: './src/homepage/homepage.js',
+    // features: './src/features/features.js',
+    // aboutUs: './src/aboutUs/aboutUs.js',
+    // menu: './src/menu/menu.js',
   },
   devtool: 'inline-source-map',
   plugins: [
