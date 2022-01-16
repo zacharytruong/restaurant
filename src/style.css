@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Source+Sans+Pro:wght@300&display=swap');
+
 /* Global Styles */
 :root {
   --primary-color: #C21500;
@@ -21,7 +22,10 @@ p {
 
 /* Styling header */
 #header {
-  /* background: url('heroImage.jpg'); */
+  background-image: linear-gradient(to left, rgba(194, 21, 0, .5) , rgba(255, 197, 0, .5)), url('./homepage/resources/home-bg-slideshow1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   height: 100vh;
 }
 /* Styling main body */

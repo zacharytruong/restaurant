@@ -14,7 +14,6 @@ module.exports = {
       filename: 'index.html',
       favicon: './src/homepage/resources/YUMCHA-Gold.svg',
     }),
-    // new FaviconsWebpackPlugin('./src/homepage/resources/YUMCHA-Gold.svg'),
   ],
   module: {
     rules: [
@@ -24,11 +23,11 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        use: 'asset/resource',
+        type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        use: 'asset/resource',
+        type: 'asset/resource',
       }
     ],
   },

@@ -1,8 +1,7 @@
-import backgroundImage from './resources/heroImage.jpg';
 const homepage = ( function() {
   
   // Cache DOM
-  const header = document.getElementById('header');
+  // const header = document.getElementById('header');
 
   function createBasicHTML(...args) {
     for (let arg of args) {
