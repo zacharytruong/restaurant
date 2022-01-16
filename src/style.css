@@ -18,3 +18,12 @@ p {
   color: var(--secondary-text-color);
   font-family: 'Montserrat', sans-serif;
 }
+
+/* Styling header */
+#header {
+  /* background: url('heroImage.jpg'); */
+  height: 100vh;
+}
+/* Styling main body */
+
+/* Styling footer */
