@@ -1,20 +1,31 @@
 const homepage = ( function() {
   
-  // Cache DOM
-  // const header = document.getElementById('header');
+    _createBasicHTML('header', 'main', 'footer');
 
-  function createBasicHTML(...args) {
+  // Cache DOM
+  const header = document.getElementById('header');
+
+  _addingDivs(2, header);
+
+  function _createBasicHTML(...args) {
     for (let arg of args) {
       const ele = document.createElement(arg);
       ele.setAttribute('id', arg);
       document.body.appendChild(ele)
     }
+  }  
+
+  function _createEle(ele) {
+    return document.createElement(ele);
+  }
+  function _addingDivs(num, node) {
+    for (let i = 0; i++; i <= num) {
+      
+      node.appendChild(_createEle('div'))
+    }
   }
   
-  return {
-    createBasicHTML,
-  }
 
-})();
+});
 
 export {homepage};
