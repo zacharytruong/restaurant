@@ -11,9 +11,17 @@ const blocks = ( function() {
     newItem.appendChild(newItemLink);
     return newItem;
   }
+  function newColumns(num, node) {
+    for (let i = 1; i <= num; i++) {
+      const col = newElement('div');
+      col.width = '100 / 3' + '%';
+    }
+  }
+  
   return {
     newElement,
     newMenuItem,
+    newColumns,
   }
 } )();
 

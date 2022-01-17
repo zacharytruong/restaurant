@@ -31,7 +31,7 @@ const homepage = ( function() {
   menuDiv.classList.add('menuDiv');
   const mainMenu = blocks.newElement('menu');
   menuDiv.appendChild(mainMenu);
-  const featuresMenu = blocks.newMenuItem('feature', 'Features');
+  const featuresMenu = blocks.newMenuItem('features', 'Features');
   const aboutMenu = blocks.newMenuItem('about', 'About');
   const menuMenu = blocks.newMenuItem('menu', 'Menu');
   mainMenu.appendChild(featuresMenu);
@@ -41,8 +41,17 @@ const homepage = ( function() {
   header.appendChild(logoDiv);
   header.appendChild(menuDiv);
   
-  
+  // Create Features section
+  const features = blocks.newElement('div');
+  features.setAttribute('id', 'features');
+  const featuresHeader = blocks.newElement('h2');
+  featuresHeader.textContent = 'Features';
+  features.appendChild(featuresHeader);
+  const featuresColumnDiv = blocks.newElement('div');
+  // const featuresCols = blocks.newColumns(3, featuresColumnDiv);
 
+  mainContent.appendChild(features);
+  mainContent.appendChild(featuresColumnDiv);
 
 });
 
