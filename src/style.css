@@ -22,7 +22,7 @@ p {
 
 /* Styling header */
 #header {
-  background-image: linear-gradient(to left, rgba(194, 21, 0, .5) , rgba(255, 197, 0, .5)), url('./homepage/resources/home-bg-slideshow1.jpg');
+  /* background-image: linear-gradient(to left, rgba(194, 21, 0, .5) , rgba(255, 197, 0, .5)), url('./homepage/resources/home-bg-slideshow1.jpg'); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

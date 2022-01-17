@@ -1,58 +1,87 @@
 import {blocks} from './../blocks.js';
 import Logo from './resources/YUMCHA-Gold.svg';
+import backgroundImageSrc from './resources/home-bg-slideshow1.jpg';
 
 const homepage = ( function() {
-  
-  // Create Skeleton HTML
-  const newHeader = blocks.newElement('div');
-  newHeader.setAttribute('id', 'header');
-  const newMainContent = blocks.newElement('div');
-  newMainContent.setAttribute('id', 'main');
-  const newFooter = blocks.newElement('div');
-  newFooter.setAttribute('id', 'footer');
-  document.body.appendChild(newHeader);
-  document.body.appendChild(newMainContent);
-  document.body.appendChild(newFooter);
+  const _headerBlock = ( function() {
 
-  // Cache DOM
-  const header = document.getElementById('header');
-  const mainContent = document.getElementById('main');
-  const footer = document.getElementById('footer');
-  
-  // Create Main Navigation
-  const logoDiv = blocks.newElement('div');
-  logoDiv.classList.add('logoDiv');
-  const mainLogo = new Image();
-  mainLogo.src = Logo;
-  mainLogo.classList.add('mainLogo');
-  logoDiv.appendChild(mainLogo);
+    // Cache DOM
+    const header = document.getElementById('header');
+    header.style.backgroundImage = `linear-gradient(to left, rgba(194, 21, 0, .5) , rgba(255, 197, 0, .5)), url('${backgroundImageSrc}')`;
 
-  const menuDiv = blocks.newElement('div');
-  menuDiv.classList.add('menuDiv');
-  const mainMenu = blocks.newElement('menu');
-  menuDiv.appendChild(mainMenu);
-  const featuresMenu = blocks.newMenuItem('features', 'Features');
-  const aboutMenu = blocks.newMenuItem('about', 'About');
-  const menuMenu = blocks.newMenuItem('menu', 'Menu');
-  mainMenu.appendChild(featuresMenu);
-  mainMenu.appendChild(aboutMenu);
-  mainMenu.appendChild(menuMenu);
-  
-  header.appendChild(logoDiv);
-  header.appendChild(menuDiv);
-  
-  // Create Features section
-  const features = blocks.newElement('div');
-  features.setAttribute('id', 'features');
-  const featuresHeader = blocks.newElement('h2');
-  featuresHeader.textContent = 'Features';
-  features.appendChild(featuresHeader);
-  const featuresColumnDiv = blocks.newElement('div');
-  // const featuresCols = blocks.newColumns(3, featuresColumnDiv);
+    // Create Main Navigation
+    const logoDiv = blocks.newElement('div');
+    logoDiv.classList.add('logoDiv');
+    const mainLogo = new Image();
+    mainLogo.src = Logo;
+    mainLogo.classList.add('mainLogo');
+    logoDiv.appendChild(mainLogo);
+    header.appendChild(logoDiv);
 
-  mainContent.appendChild(features);
-  mainContent.appendChild(featuresColumnDiv);
+    // Create Main Menu Block
+    const MenuArr = [];
+    const menuDiv = blocks.newElement('div');
+    menuDiv.classList.add('menuDiv');
+    const mainMenu = blocks.newElement('menu');
+    menuDiv.appendChild(mainMenu);
+    blocks.newMenuItem(MenuArr, 'features', 'Features');
+    blocks.newMenuItem(MenuArr, 'about', 'About');
+    blocks.newMenuItem(MenuArr, 'menu', 'Menu');
+    blocks.displayMenu(menuDiv, MenuArr);
+    header.appendChild(menuDiv);
 
-});
+  });
+  
+  const _mainBlock = ( function() {
+
+    // Cache DOM
+    const main = document.getElementById('main');
+
+    // Create Features block
+    const features = blocks.newElement('div');
+    features.setAttribute('id', 'features');
+    const featuresHeader = blocks.newElement('h2');
+    featuresHeader.textContent = 'Features';
+    features.appendChild(featuresHeader);
+    
+    const featuresContainer = blocks.createCols(3,'featuresList');
+    featuresContainer.classList.add('featuresContainer');
+    features.appendChild(featuresContainer);
+    
+    main.appendChild(features);
+    
+    
+
+  });
+  
+  const _footerBlock = ( function() {
+    const footer = document.getElementById('footer');
+  });
+
+  function render() {
+    _headerBlock();
+    _mainBlock();
+    _footerBlock();
+  }
+
+  return {
+    render,
+  }
+})();
+
+
+
+
+
+// const homepage = ( function() {
+
+
+
+
+
+  
+
+
+// });
 
 export {homepage};
