@@ -36,6 +36,9 @@ const blocks = ( function() {
       node.appendChild(arr[i]);
     }
   }
+  function createColumnList() {
+    const div = newElement('div');
+  }
   
   return {
     newElement,
