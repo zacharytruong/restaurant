@@ -6,14 +6,9 @@ import {homepage} from './homepage/homepage.js';
 const createPage = ( function() {
   
   function _init() {
-
     // Create Skeleton HTML
-    document.body.appendChild(blocks.newBlock('header'));
-    document.body.appendChild(blocks.newBlock('main'));
-    document.body.appendChild(blocks.newBlock('footer'));
-
+    blocks.skeletonHTML();
     homepage.render();
-
   }
 
   _init();

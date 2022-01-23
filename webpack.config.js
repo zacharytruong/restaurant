@@ -9,14 +9,18 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      favicon: './src/homepage/resources/YUMCHA-Gold.svg',
+      // favicon: './src/homepage/resources/YUMCHA-Gold.svg',
       template: './src/index.html',
-      title: 'TEALAX - Make Everything With Love',
+      // title: 'TEALAX - Make Everything With Love',
       filename: 'index.html',
     }),
   ],
   module: {
     rules: [
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
