@@ -1,30 +1,26 @@
 const blocks = ( function() {
 
+  const _mainContent = document.getElementById('mainContent');
+
   function skeletonHTML() {
-    document.body.appendChild(blocks.newBlock('header'));
-    document.body.appendChild(blocks.newBlock('main'));
-    document.body.appendChild(blocks.newBlock('footer'));
-  }
-  function newElement(ele, className, idName) {
-    const element = document.createElement(ele);
-    if (className) {element.classList.add(className)}
-    if (idName) {element.setAttribute('id', idName)}
-    return element;
+    _mainContent.appendChild(blocks.newBlock('header'));
+    _mainContent.appendChild(blocks.newBlock('main'));
+    _mainContent.appendChild(blocks.newBlock('footer'));
   }
   function newBlock(name){
-    const block = newElement('div');
+    const block = addElement('div');
     block.setAttribute('id', name);
     return block;
   }
   function newMenuLink(id, name) {
-    const newItem = newElement('li');
-    const newItemLink = newElement('a');
+    const newItem = addElement('li');
+    const newItemLink = addElement('a', newItem);
     newItemLink.setAttribute('href', `./#${id}`);
     newItemLink.innerHTML = name;
-    newItem.appendChild(newItemLink);
     return newItem;
   }
   function featureColumn(
+    node,
     colClassName, 
     subColClassName, 
     featureIconContainerClassName, 
@@ -33,23 +29,19 @@ const blocks = ( function() {
     featureTitleClassName,
     featureTitleContent
     ) {
-    const col = blocks.newElement('div');
+    const col = blocks.addElement('div');
     col.classList.add(colClassName);
-    const subCol = blocks.newElement('div');
+    const subCol = blocks.addElement('div', col);
     subCol.classList.add(subColClassName);
-    col.appendChild(subCol);
-    const featureIconContainer = blocks.newElement('span');
+    const featureIconContainer = blocks.addElement('span', subCol);
     featureIconContainer.classList.add(featureIconContainerClassName);
-    const featureIcon = blocks.newElement('i');
+    const featureIcon = blocks.addElement('i', featureIconContainer);
     featureIcon.classList.add(firstFeatureIconClassName);
     featureIcon.classList.add(secondFeatureIconClassName);
-    featureIconContainer.appendChild(featureIcon);
-    subCol.appendChild(featureIcon);
-    const featureTitle = blocks.newElement('h3');
+    const featureTitle = blocks.addElement('h3', col);
     featureTitle.classList.add(featureTitleClassName);
-    featureTitle.textContent = featureTitleContent,
-    col.appendChild(featureTitle);
-    return col;
+    featureTitle.textContent = featureTitleContent;
+    return node.appendChild(col);
   }
   function newMenuItem(arr, id, name) {
     const menuItem = blocks.newMenuLink(id, name);
@@ -61,15 +53,28 @@ const blocks = ( function() {
       node.appendChild(arr[i]);
     }
   }
-  
+  function addElement(ele, node, className, idName) {
+    const element = document.createElement(ele);
+    if (className) {element.classList.add(className)}
+    if (idName) {element.setAttribute('id', idName)}
+    if (node) {
+      return node.appendChild(element);
+    } else {
+      return element;
+    }
+  }
+  function clearPage() {
+    _mainContent.innerHTML = '';
+  }
   return {
     skeletonHTML,
-    newElement,
+    addElement,
     newBlock,
     newMenuLink,
     newMenuItem,
     displayMenu,
     featureColumn,
+    clearPage,
   }
 } )();
 

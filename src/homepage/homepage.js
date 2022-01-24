@@ -1,5 +1,5 @@
 import {blocks} from './../blocks.js';
-import Logo from './resources/YUMCHA-Gold.svg';
+import Logo from './resources/TEALAX-transparent.png';
 import backgroundImageSrc from './resources/home-bg-slideshow1.jpg';
 
 const homepage = ( function() {
@@ -10,27 +10,22 @@ const homepage = ( function() {
     header.style.backgroundImage = `linear-gradient(to left, rgba(194, 21, 0, .5) , rgba(255, 197, 0, .5)), url('${backgroundImageSrc}')`;
 
     // Create Main Navigation
-    const homepageLink = blocks.newElement('a');
-    homepageLink.href = './index.html';
-    const logoDiv = blocks.newElement('div', 'logoDiv', '');
+    const logoDiv = blocks.addElement('div', header, 'logoDiv');
     const mainLogo = new Image();
     mainLogo.src = Logo;
     mainLogo.classList.add('mainLogo');
+    const homepageLink = blocks.addElement('a', logoDiv);
+    homepageLink.href = './index.html';
     homepageLink.appendChild(mainLogo);
-    logoDiv.appendChild(homepageLink);
-    header.appendChild(logoDiv);
 
     // Create Main Menu Block
     const MenuArr = [];
-    const menuDiv = blocks.newElement('div', 'menuDiv', '');
-    const mainMenu = blocks.newElement('menu', 'mainMenu');
-    menuDiv.appendChild(mainMenu);
+    const menuDiv = blocks.addElement('div', header, 'menuDiv');
+    const mainMenu = blocks.addElement('menu', menuDiv, 'mainMenu');
     blocks.newMenuItem(MenuArr, 'features', 'Features');
     blocks.newMenuItem(MenuArr, 'about', 'About');
     blocks.newMenuItem(MenuArr, 'menu', 'Menu');
     blocks.displayMenu(mainMenu, MenuArr);
-    header.appendChild(menuDiv);
-
   });
   
   const _mainBlock = ( function() {
@@ -39,17 +34,14 @@ const homepage = ( function() {
     const main = document.getElementById('main');
     
     // Create Features block
-    const features = blocks.newElement('div', '', 'features');
-    const featuresHeader = blocks.newElement('h3', 'featureHeader');
+    const features = blocks.addElement('div', main, '', 'features');
+    const featuresHeader = blocks.addElement('h3', features, 'featureHeader');
     featuresHeader.textContent = 'Features';
-    features.appendChild(featuresHeader);
-    const featuresContainer = blocks.newElement('div', 'featuresContainer');
-    features.appendChild(featuresContainer);
-
-    main.appendChild(features);
+    const featuresContainer = blocks.addElement('div', features, 'featuresContainer');
     
     // Create feature column
     const firstCol = blocks.featureColumn(
+      featuresContainer,
       'featureCol',
       'featureIconContainer',
       'featureIcon',
@@ -58,8 +50,8 @@ const homepage = ( function() {
       'featureTitle',
       'TEA'
     );
-    featuresContainer.appendChild(firstCol);
     const secondCol = blocks.featureColumn(
+      featuresContainer,
       'featureCol',
       'featureIconContainer',
       'featureIcon',
@@ -68,8 +60,8 @@ const homepage = ( function() {
       'featureTitle',
       'BAKERY - Make to Orders'
     );
-    featuresContainer.appendChild(secondCol);
     const thirdCol = blocks.featureColumn(
+      featuresContainer,
       'featureCol',
       'featureIconContainer',
       'featureIcon',
@@ -78,59 +70,43 @@ const homepage = ( function() {
       'featureTitle',
       'SWEET'
     );
-    featuresContainer.appendChild(thirdCol);
   });
   
   const _footerBlock = ( function() {
 
     const footer = document.getElementById('footer');
-    const firstFooterCol = blocks.newElement('div', 'footerCol');
-    footer.appendChild(firstFooterCol);
-    const secondFooterCol = blocks.newElement('div', 'footerCol');
-    footer.appendChild(secondFooterCol);
-    const thirdFooterCol = blocks.newElement('div', 'footerCol');
-    footer.appendChild(thirdFooterCol);
+    const firstFooterCol = blocks.addElement('div', footer, 'footerCol');
+    const secondFooterCol = blocks.addElement('div', footer, 'footerCol');
+    const thirdFooterCol = blocks.addElement('div', footer, 'footerCol');
 
     // First Footer Col
-    const joinUs = blocks.newElement('h3', 'joinUs');
+    const joinUs = blocks.addElement('h3', firstFooterCol, 'joinUs');
     joinUs.textContent = 'Join Us';
-    firstFooterCol.appendChild(joinUs);
-    const joinUsDesc = blocks.newElement('p', 'joinUsDesc');
+    const joinUsDesc = blocks.addElement('p', firstFooterCol, 'joinUsDesc');
     joinUsDesc.textContent = 'Always looking for friendly staff with positive attitudes! Please submit your resume to';
-    firstFooterCol.appendChild(joinUsDesc);
-    const joinUsEmailLink = blocks.newElement('a', 'joinUsEmailLink');
+    const joinUsEmailLink = blocks.addElement('a', firstFooterCol, 'joinUsEmailLink');
     joinUsEmailLink.innerHTML = 'hello@tealax.com';
     joinUsEmailLink.href = 'mailto:hello@tealax.com';
-    firstFooterCol.appendChild(joinUsEmailLink);
-
 
     // Second Footer Col
-    const location = blocks.newElement('h3', 'location');
+    const location = blocks.addElement('h3', secondFooterCol, 'location');
     location.textContent = 'LOCATION';
-    secondFooterCol.appendChild(location);
-    const locationAddr = blocks.newElement('p', 'locationAddr');
+    const locationAddr = blocks.addElement('p', secondFooterCol, 'locationAddr');
     locationAddr.textContent = '1234 Bellaire';
-    secondFooterCol.appendChild(locationAddr);
-    const locationCity = blocks.newElement('p', 'locationCity');
+    const locationCity = blocks.addElement('p', secondFooterCol, 'locationCity');
     locationCity.textContent = 'Houston, TX 77036';
-    secondFooterCol.appendChild(locationCity);
-    const locationPhoneNumber = blocks.newElement('p', 'locationPhoneNumber');
+    const locationPhoneNumber = blocks.addElement('p', secondFooterCol, 'locationPhoneNumber');
     locationPhoneNumber.textContent = '281-999-0909';
-    secondFooterCol.appendChild(locationPhoneNumber);
 
     // Third Footer Col
-    const hoursTitle = blocks.newElement('h3', 'hoursTitle');
+    const hoursTitle = blocks.addElement('h3', thirdFooterCol, 'hoursTitle');
     hoursTitle.textContent = 'HOURS';
-    thirdFooterCol.appendChild(hoursTitle);
-    const hoursDates = blocks.newElement('p', 'hoursDates');
+    const hoursDates = blocks.addElement('p', thirdFooterCol, 'hoursDates');
     hoursDates.textContent = 'SUNDAY - FRIDAY';
-    thirdFooterCol.appendChild(hoursDates);
-    const hoursHours = blocks.newElement('p', 'hoursHours');
+    const hoursHours = blocks.addElement('p', thirdFooterCol, 'hoursHours');
     hoursHours.textContent = '11:00 AM - 9:00 PM';
-    thirdFooterCol.appendChild(hoursHours);
 
   });
-  
   
   function render() {
     _headerBlock();
