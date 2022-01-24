@@ -6,6 +6,12 @@
   --primary-text-color: #333333;
   --secondary-text-color: #757575;
 }
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
 h1,
 h3,
 h5 {
@@ -19,7 +25,27 @@ p {
   color: var(--secondary-text-color);
   font-family: 'Montserrat', sans-serif;
 }
-
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 2rem;
+}
+p {
+  font-size: 1.6rem;
+}
+li {
+  list-style: none;
+  display: inline-block;
+}
+a {
+  text-decoration: none;
+  color: #FFF;
+  font-size: 1.6rem;
+}
 /* Styling header */
 #header {
   /* background-image: linear-gradient(to left, rgba(194, 21, 0, .5) , rgba(255, 197, 0, .5)), url('./homepage/resources/home-bg-slideshow1.jpg'); */
@@ -28,6 +54,80 @@ p {
   background-position: center;
   height: 100vh;
 }
+.mainNav {
+  display: flex;
+  height: 100px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+.logoDiv {
+  height: 100%;
+  width: 30%;
+}
+.mainLogo {
+  height: 100%;
+}
+.menuDiv {
+  height: 100%;
+  width: 70%;
+}
+.mainMenu {
+  display: flex;
+  justify-content: flex-end;
+}
+.menuList > a {
+  font-size: 2.5rem;
+  padding: 1.5rem;
+  line-height: 5rem;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.menuList:hover > a {
+  color: var(--secondary-text-color);
+}
 /* Styling main body */
-
+#main {
+  margin: 10rem 0;
+}
+#features {
+  width: 70%;
+  margin: 0 auto;
+}
+.featureHeader {
+  font-size: 3.5rem;
+  color: var(--primary-text-color);
+  padding-bottom: 15rem;
+  text-align: center;
+}
+.featuresContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.featureCol {
+  text-align: center;
+  width: calc(100%/3.5);
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6px );
+  -webkit-backdrop-filter: blur( 6px );
+  border-radius: 10px;
+  /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+  padding: 1.5rem;
+  margin: 1rem;
+  min-height: 20rem;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.featureIconContainer {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.featureIcon > .fa {
+  font-size: 5rem;
+  color: var(--primary-color);
+}
 /* Styling footer */

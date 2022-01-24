@@ -10,7 +10,8 @@ const homepage = ( function() {
     header.style.backgroundImage = `linear-gradient(to left, rgba(194, 21, 0, .5) , rgba(255, 197, 0, .5)), url('${backgroundImageSrc}')`;
 
     // Create Main Navigation
-    const logoDiv = blocks.addElement('div', header, 'logoDiv');
+    const mainNAv = blocks.addElement('div', header, 'mainNav');
+    const logoDiv = blocks.addElement('div', mainNAv, 'logoDiv');
     const mainLogo = new Image();
     mainLogo.src = Logo;
     mainLogo.classList.add('mainLogo');
@@ -20,7 +21,7 @@ const homepage = ( function() {
 
     // Create Main Menu Block
     const MenuArr = [];
-    const menuDiv = blocks.addElement('div', header, 'menuDiv');
+    const menuDiv = blocks.addElement('div', mainNAv, 'menuDiv');
     const mainMenu = blocks.addElement('menu', menuDiv, 'mainMenu');
     blocks.newMenuItem(MenuArr, 'features', 'Features');
     blocks.newMenuItem(MenuArr, 'about', 'About');
@@ -58,7 +59,7 @@ const homepage = ( function() {
       'fa',
       'fa-cutlery',
       'featureTitle',
-      'BAKERY - Make to Orders'
+      'BAKERY'
     );
     const thirdCol = blocks.featureColumn(
       featuresContainer,

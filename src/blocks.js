@@ -13,7 +13,7 @@ const blocks = ( function() {
     return block;
   }
   function newMenuLink(id, name) {
-    const newItem = addElement('li');
+    const newItem = addElement('li', '', 'menuList');
     const newItemLink = addElement('a', newItem);
     newItemLink.setAttribute('href', `./#${id}`);
     newItemLink.innerHTML = name;
