@@ -3,8 +3,10 @@
 /* Global Styles */
 :root {
   --primary-color: #C21500;
+  --primary-white-color: #FFF;
   --primary-text-color: #333333;
   --secondary-text-color: #757575;
+  --dark-background-color: #141414;
 }
 * {
   box-sizing: border-box;
@@ -43,7 +45,7 @@ li {
 }
 a {
   text-decoration: none;
-  color: #FFF;
+  color: var(--primary-white-color);
   font-size: 1.6rem;
 }
 /* Styling header */
@@ -125,9 +127,53 @@ a {
   top: 0%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: var(--primary-color);
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+  background: rgba(194, 21, 0, 0.5 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6px );
+  -webkit-backdrop-filter: blur( 6px );
+  border-radius: 10px;
+  /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
 }
 .featureIcon > .fa {
   font-size: 5rem;
-  color: var(--primary-color);
+  color: var(--primary-white-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 /* Styling footer */
+#footer {
+  background: var(--dark-background-color);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10rem;
+  justify-content: center;
+}
+.footerCol {
+  width: calc(100%/4);
+  color: var(--primary-white-color);
+  padding: 0 2rem 0 2rem;
+}
+.joinUs,
+.joinUsDesc,
+.location,
+.locationAddr,
+.locationCity,
+.locationPhoneNumber,
+.hoursTitle,
+.hoursDates,
+.hoursHours {
+  color: var(--primary-white-color);
+  line-height: 2;
+}
+.joinUsEmailLink {
+  line-height: 2;
+}
+.joinUsEmailLink:hover {
+  color: var(--primary-color);
+}
