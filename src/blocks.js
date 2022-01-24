@@ -12,11 +12,11 @@ const blocks = ( function() {
     block.setAttribute('id', name);
     return block;
   }
-  function newMenuLink(id, name) {
-    const newItem = addElement('li', '', 'menuList');
+  function newMenuLink(id, className, menuName) {
+    const newItem = addElement('li', '', className);
     const newItemLink = addElement('a', newItem);
     newItemLink.setAttribute('href', `./#${id}`);
-    newItemLink.innerHTML = name;
+    newItemLink.innerHTML = menuName;
     return newItem;
   }
   function featureColumn(
@@ -43,8 +43,8 @@ const blocks = ( function() {
     featureTitle.textContent = featureTitleContent;
     return node.appendChild(col);
   }
-  function newMenuItem(arr, id, name) {
-    const menuItem = blocks.newMenuLink(id, name);
+  function newMenuItem(arr, id, className, menuName) {
+    const menuItem = blocks.newMenuLink(id, className, menuName);
     arr.push(menuItem);
     return arr;
   }

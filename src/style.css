@@ -177,3 +177,17 @@ a {
 .joinUsEmailLink:hover {
   color: var(--primary-color);
 }
+
+/* Responsive Settings */
+@media all and (max-width: 400px) {
+  #features {
+    width: 90%;
+  }
+  .featureCol {
+    width: 100%;
+  }
+  .footerCol {
+    width: 100%;
+    padding: 2rem 0;
+  }
+}

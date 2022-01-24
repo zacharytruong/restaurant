@@ -23,9 +23,9 @@ const homepage = ( function() {
     const MenuArr = [];
     const menuDiv = blocks.addElement('div', mainNAv, 'menuDiv');
     const mainMenu = blocks.addElement('menu', menuDiv, 'mainMenu');
-    blocks.newMenuItem(MenuArr, 'features', 'Features');
-    blocks.newMenuItem(MenuArr, 'about', 'About');
-    blocks.newMenuItem(MenuArr, 'menu', 'Menu');
+    blocks.newMenuItem(MenuArr, 'features', 'menuList', 'Features');
+    blocks.newMenuItem(MenuArr, 'about', 'menuList', 'About');
+    blocks.newMenuItem(MenuArr, 'menu', 'menuList', 'Menu');
     blocks.displayMenu(mainMenu, MenuArr);
   });
   
