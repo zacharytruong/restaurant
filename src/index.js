@@ -7,7 +7,6 @@ const createPage = ( function() {
   
   function _init() {
     // Create Skeleton HTML
-    blocks.skeletonHTML();
     homepage.render();
   }
 

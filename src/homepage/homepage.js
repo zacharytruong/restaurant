@@ -27,6 +27,14 @@ const homepage = ( function() {
     blocks.newMenuItem(MenuArr, 'about', 'menuList', 'About');
     blocks.newMenuItem(MenuArr, 'menu', 'menuList', 'Menu');
     blocks.displayMenu(mainMenu, MenuArr);
+
+    // Create mobile menu
+    const mobileMenu = blocks.addElement('div', menuDiv, 'mobileMenu');
+    const mobileMenuIcon = blocks.addElement('i', mobileMenu, 'fas');
+    mobileMenuIcon.classList.add('fa-bars');
+    const mobileMenuDiv = blocks.addElement('div', mobileMenu, 'mobileMenuDiv');
+    const mobileMenuList = blocks.addElement('menu', mobileMenuDiv, 'mobileMenuList');
+
   });
   
   const _mainBlock = ( function() {
@@ -110,6 +118,7 @@ const homepage = ( function() {
   });
   
   function render() {
+    blocks.skeletonHTML();
     _headerBlock();
     _mainBlock();
     _footerBlock();
