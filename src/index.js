@@ -6,7 +6,6 @@ import {homepage} from './homepage/homepage.js';
 const createPage = ( function() {
   
   function _init() {
-    // Create Skeleton HTML
     homepage.render();
   }
 

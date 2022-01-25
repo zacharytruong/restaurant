@@ -29,12 +29,15 @@ const homepage = ( function() {
     blocks.displayMenu(mainMenu, MenuArr);
 
     // Create mobile menu
+    const MobileMenuArr = [];
     const mobileMenu = blocks.addElement('div', menuDiv, 'mobileMenu');
     const mobileMenuIcon = blocks.addElement('i', mobileMenu, 'fas');
     mobileMenuIcon.classList.add('fa-bars');
-    const mobileMenuDiv = blocks.addElement('div', mobileMenu, 'mobileMenuDiv');
-    const mobileMenuList = blocks.addElement('menu', mobileMenuDiv, 'mobileMenuList');
-
+    const mobileMenuList = blocks.addElement('menu', mobileMenu, 'mobileMenuList');
+    blocks.newMenuItem(MobileMenuArr, 'features', 'menuList', 'Features');
+    blocks.newMenuItem(MobileMenuArr, 'about', 'menuList', 'About');
+    blocks.newMenuItem(MobileMenuArr, 'menu', 'menuList', 'Menu');
+    blocks.displayMenu(mobileMenuList, MobileMenuArr);
   });
   
   const _mainBlock = ( function() {
