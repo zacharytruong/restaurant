@@ -50,8 +50,10 @@ a {
   color: var(--primary-white-color);
   font-size: 1.6rem;
 }
-.showElement {
-  display: block;
+.hideElement {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s linear, visibility .5s linear;
 }
 /* Styling header */
 #header {
@@ -112,6 +114,7 @@ a {
   flex-direction: column;
   margin: 0;
   padding: 0;
+  transition: opacity .5s linear, visibility .5s linear;
 }
 .mobileMenuList > .menuList > a {
   margin: 0;
@@ -216,9 +219,7 @@ a {
     display: none;
   }
   /* Mobile Menu  */
-  .mobileMenuList {
-    display: none;
-  }
+
 
   /* Main Content */
   #features {

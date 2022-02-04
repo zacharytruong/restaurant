@@ -65,8 +65,7 @@ const blocks = ( function() {
   }
   function toggleElement(idName, className) {
     const node = document.getElementById(idName);
-    console.log('clicking');
-    // return node.classList.toggle(className);
+    node.classList.toggle(className);
   }
   function clearPage() {
     _mainContent.innerHTML = '';

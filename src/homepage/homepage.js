@@ -30,15 +30,16 @@ const homepage = ( function() {
 
     // Create mobile menu
     const MobileMenuArr = [];
-    const mobileMenu = blocks.addElement('div', menuDiv, 'mobileMenu');
+    const mobileMenu = blocks.addElement('div', menuDiv, 'mobileMenu', 'mobileMenu');
     const mobileMenuIcon = blocks.addElement('i', mobileMenu, 'fas');
     mobileMenuIcon.classList.add('fa-bars');
+    mobileMenuIcon.setAttribute('id', 'hamburgerMenu');
     const mobileMenuList = blocks.addElement('menu', mobileMenu, 'mobileMenuList', 'mobileMenuList');
+    mobileMenuList.classList.add('hideElement');
     blocks.newMenuItem(MobileMenuArr, 'features', 'menuList', 'Features');
     blocks.newMenuItem(MobileMenuArr, 'about', 'menuList', 'About');
     blocks.newMenuItem(MobileMenuArr, 'menu', 'menuList', 'Menu');
     blocks.displayMenu(mobileMenuList, MobileMenuArr);
-    // mobileMenu.addEventListener('click', blocks.toggleElement(mobileMenuList, 'showElement'));
   });
   
   const _mainBlock = ( function() {
@@ -132,5 +133,6 @@ const homepage = ( function() {
     render,
   }
 })();
+
 
 export {homepage};
