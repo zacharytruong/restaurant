@@ -10,6 +10,8 @@
 }
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 html {
   font-size: 10px;
@@ -48,6 +50,9 @@ a {
   color: var(--primary-white-color);
   font-size: 1.6rem;
 }
+.showElement {
+  display: block;
+}
 /* Styling header */
 #header {
   /* background-image: linear-gradient(to left, rgba(194, 21, 0, .5) , rgba(255, 197, 0, .5)), url('./homepage/resources/home-bg-slideshow1.jpg'); */
@@ -72,6 +77,9 @@ a {
 .menuDiv {
   height: 100%;
   width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 .mainMenu {
   display: flex;
@@ -92,6 +100,8 @@ a {
   display: flex;
   flex-direction: column;
   text-align: right;
+  height: 100%;
+  padding-top: 2rem;
 }
 .mobileMenu > .fa-bars {
   font-size: 4rem;
@@ -206,7 +216,9 @@ a {
     display: none;
   }
   /* Mobile Menu  */
-
+  .mobileMenuList {
+    display: none;
+  }
 
   /* Main Content */
   #features {
@@ -223,5 +235,7 @@ a {
   }
 }
 @media screen and (min-width: 401px) {
-  
+  .mobileMenu {
+    display: none;
+  }
 }

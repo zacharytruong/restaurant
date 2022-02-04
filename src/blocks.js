@@ -63,6 +63,11 @@ const blocks = ( function() {
       return element;
     }
   }
+  function toggleElement(idName, className) {
+    const node = document.getElementById(idName);
+    console.log('clicking');
+    // return node.classList.toggle(className);
+  }
   function clearPage() {
     _mainContent.innerHTML = '';
   }
@@ -74,6 +79,7 @@ const blocks = ( function() {
     newMenuItem,
     displayMenu,
     featureColumn,
+    toggleElement,
     clearPage,
   }
 } )();

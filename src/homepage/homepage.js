@@ -33,11 +33,12 @@ const homepage = ( function() {
     const mobileMenu = blocks.addElement('div', menuDiv, 'mobileMenu');
     const mobileMenuIcon = blocks.addElement('i', mobileMenu, 'fas');
     mobileMenuIcon.classList.add('fa-bars');
-    const mobileMenuList = blocks.addElement('menu', mobileMenu, 'mobileMenuList');
+    const mobileMenuList = blocks.addElement('menu', mobileMenu, 'mobileMenuList', 'mobileMenuList');
     blocks.newMenuItem(MobileMenuArr, 'features', 'menuList', 'Features');
     blocks.newMenuItem(MobileMenuArr, 'about', 'menuList', 'About');
     blocks.newMenuItem(MobileMenuArr, 'menu', 'menuList', 'Menu');
     blocks.displayMenu(mobileMenuList, MobileMenuArr);
+    // mobileMenu.addEventListener('click', blocks.toggleElement(mobileMenuList, 'showElement'));
   });
   
   const _mainBlock = ( function() {
