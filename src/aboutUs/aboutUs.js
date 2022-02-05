@@ -75,6 +75,10 @@ const aboutUs = ( function() {
     const secondCol = blocks.addElement('div', mainContent, 'secondCOl');
     secondCol.style.width = '100%';
 
+    // Main block content second column slideshow
+    const secondColSlideContainer = blocks.addElement('div', secondCol, 'slideShowContainer');
+    
+
   });
   
   const _footerBlock = ( function() {
