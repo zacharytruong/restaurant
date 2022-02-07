@@ -180,6 +180,105 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* Styling About Us Page - Main Content */
+.aboutUsContent {
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+.slideShowContainer {
+  position: relative;
+}
+.firstCol {
+  width: 30%;
+  padding: 1rem;
+}
+.secondCol {
+  width: 70%;
+}
+.primaryHeader {
+  text-align: center;
+  color: #333;
+  font-size: 4rem;
+  letter-spacing: .2rem;
+  text-transform: uppercase;
+}
+.subHeader {
+  text-align: center;
+  font-size: 1.2rem;
+  letter-spacing: .3rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.aboutUsContent {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5rem 0;
+}
+.firstColImg {
+  border-radius: 1rem;
+}
+.imgCap {
+  text-align: center;
+  padding: 1rem 0;
+}
+.slideShow {
+  padding: 0 2.5rem;
+  text-align: center;
+}
+.slideShow > img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+.prev,
+.next {
+  font-size: 4rem;
+  color: var(--primary-white-color);
+  position: absolute;
+  user-select: none;
+  padding: 1rem .5rem;
+}
+.prev {
+  top: 50%;
+  left: 5rem;
+  transform: translate(0, -50%);
+}
+.next {
+  top: 50%;
+  right: 5rem;
+  transform: translate(0, -50%);
+}
+.next:hover,
+.prev:hover {
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: .5rem;
+  cursor: pointer;
+}
+.dots {
+  text-align: center;
+  padding: 2rem 0;
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+  background-color: #717171;
+}
+.slideShowCaption {
+  text-align: center;
+  font-size: 1.8rem;
+}
 /* Styling footer */
 #footer {
   background: var(--dark-background-color);
@@ -226,6 +325,11 @@ a {
     width: 90%;
   }
   .featureCol {
+    width: 100%;
+  }
+  /* Main Content About Us Page */
+  .firstCol,
+  .secondCol {
     width: 100%;
   }
 
