@@ -106,6 +106,38 @@ const aboutUs = ( function() {
     secondSlide.style.display = 'none';
     thirdSlide.style.display = 'none';
 
+    // Function slide show
+    
+    const slideShow = (
+      function() {
+        const slides = document.getElementsByClassName('slideShow');
+        const dots = document.getElementsByClassName('dot');
+        const prev = Array.from(document.getElementsByClassName('prev'));
+        let slideOrder = 1;
+        showSlide(slideOrder);
+        
+        prev[0].addEventListener('click', nextSlide(-1));
+        function showSlide(n) {
+          if (n > slides.length) {
+            slideOrder = 1;
+          }
+          if (n < 1) {
+            slideOrder = slides.length;
+          }
+          for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = 'none';
+          }
+          slides[slideOrder -1].style.display = 'block';
+        }
+        function nextSlide(n) {
+          showSlide(slideOrder += n);
+        }
+        function currentSlide(n) {
+          showSlide(slideOrder = n);
+        }
+      }
+    )();
+
   });
   
   const _footerBlock = ( function() {
