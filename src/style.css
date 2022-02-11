@@ -228,6 +228,7 @@ a {
 .slideShow {
   padding: 0 2.5rem;
   text-align: center;
+  transition: 0.6s ease;
 }
 .slideShow > img {
   width: 100%;
@@ -279,6 +280,22 @@ a {
   text-align: center;
   font-size: 1.8rem;
 }
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
 /* Styling footer */
 #footer {
   background: var(--dark-background-color);

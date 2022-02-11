@@ -93,8 +93,10 @@ const aboutUs = ( function() {
     thirdImg.src = storyImg3Src;
     const prev = blocks.addElement('a', slideShowNav);
     prev.classList.add('prev');
+    prev.setAttribute('id', 'prev');
     const next = blocks.addElement('a', slideShowNav);
     next.classList.add('next');
+    next.setAttribute('id', 'next');
     prev.innerHTML = '&#10094;';
     next.innerHTML = '&#10095;';
     const firstDot = blocks.addElement('span', dots);
@@ -103,37 +105,59 @@ const aboutUs = ( function() {
     firstDot.classList.add('dot');
     secondDot.classList.add('dot');
     thirdDot.classList.add('dot');
-    secondSlide.style.display = 'none';
-    thirdSlide.style.display = 'none';
 
     // Function slide show
     
     const slideShow = (
       function() {
-        const slides = document.getElementsByClassName('slideShow');
-        const dots = document.getElementsByClassName('dot');
-        const prev = Array.from(document.getElementsByClassName('prev'));
-        let slideOrder = 1;
-        showSlide(slideOrder);
+
+        // Cache DOM
+        const slides = Array.from(document.getElementsByClassName('slideShow'));
+        const dots = Array.from(document.getElementsByClassName('dot'));
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+
+        // Init
+        let slideIndex = 0;
+        showSlide(slideIndex);
         
-        prev[0].addEventListener('click', nextSlide(-1));
+        // Show slide by SlideIndex
         function showSlide(n) {
-          if (n > slides.length) {
-            slideOrder = 1;
+          slides.map( slide => {
+            slide.style.display = 'none';
+          })
+          dots.map( dot => {
+            dot.classList.remove('active');
+          })
+          if (n > slides.length - 1) {
+            slideIndex = 0;
           }
-          if (n < 1) {
-            slideOrder = slides.length;
+          if ( n < 0) {
+            slideIndex = slides.length - 1;
           }
-          for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = 'none';
-          }
-          slides[slideOrder -1].style.display = 'block';
+          slides[slideIndex].style.display = 'block';
+          dots[slideIndex].classList.add('active');
         }
-        function nextSlide(n) {
-          showSlide(slideOrder += n);
-        }
+
+        // Show current slide
+        dots.forEach( (dot, index) => {
+          dot.addEventListener('click', function() {
+            currentSlide(index)
+          });
+        })
         function currentSlide(n) {
-          showSlide(slideOrder = n);
+          showSlide(slideIndex = n);
+        }
+
+        // Next or prev slide
+        prev.addEventListener('click', function() {
+          nextSlide(-1);
+        });
+        next.addEventListener('click',function() {
+          nextSlide(1);
+        });
+        function nextSlide(n) {
+          showSlide(slideIndex += n);
         }
       }
     )();
