@@ -63,6 +63,12 @@ const blocks = ( function() {
       return element;
     }
   }
+  function createImgFigure(node) {
+    const figWrap = addElement('div', node, 'figureWrap');
+    const img = addElement('img', figWrap, 'figureImg');
+    const h3 = addElement('h3', figWrap, 'figureCaption');
+    return figWrap;
+  }
   function toggleElement(idName, className) {
     const node = document.getElementById(idName);
     node.classList.toggle(className);

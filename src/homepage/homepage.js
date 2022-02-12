@@ -8,7 +8,7 @@ const homepage = ( function() {
     // Cache DOM
     const header = document.getElementById('header');
     header.style.backgroundImage = `linear-gradient(to left, rgba(194, 21, 0, .5) , rgba(255, 197, 0, .5)), url('${backgroundImageSrc}')`;
-
+    header.style.height = '600px';
     // Create Main Navigation
     const mainNAv = blocks.addElement('div', header, 'mainNav');
     const logoDiv = blocks.addElement('div', mainNAv, 'logoDiv');

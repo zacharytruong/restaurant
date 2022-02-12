@@ -1,6 +1,6 @@
 import {blocks} from './../blocks.js';
 import Logo from './resources/TEALAX-transparent.png';
-import backgroundImageSrc from './resources/home-bg-slideshow2.jpg';
+import backgroundImageSrc from './resources/home-bg-slideshow3.jpg';
 
 const menu = ( function() {
   const _headerBlock = ( function() {
@@ -8,7 +8,7 @@ const menu = ( function() {
     // Cache DOM
     const header = document.getElementById('header');
     header.style.backgroundImage = `linear-gradient(to left, rgba(194, 21, 0, .5) , rgba(255, 197, 0, .5)), url('${backgroundImageSrc}')`;
-
+    header.style.height = '600px';
     // Create Main Navigation
     const mainNAv = blocks.addElement('div', header, 'mainNav');
     const logoDiv = blocks.addElement('div', mainNAv, 'logoDiv');
@@ -43,12 +43,20 @@ const menu = ( function() {
   });
   
   const _mainBlock = ( function() {
-
     // Cache DOM
     const main = document.getElementById('main');
     
-    
-   
+    // Main block primary header
+    const primaryHeader = blocks.addElement('h2', main, 'primaryHeader');
+    primaryHeader.textContent = 'MENU';
+    primaryHeader.style.textTransform = 'uppercase';
+
+    // Main block sub header
+    const subHeader = blocks.addElement('h4', main, 'subHeader');
+    subHeader.innerHTML = '<span>⬡</span> ORGANIC FRUIT <span>⬡</span> HOT AVAILABLE';
+
+    // Gallery
+    const gallery = blocks.addElement('div', main, 'gallery', 'gallery');
   });
   
   const _footerBlock = ( function() {
@@ -88,6 +96,7 @@ const menu = ( function() {
   });
   
   function render() {
+    blocks.clearPage();
     blocks.skeletonHTML();
     _headerBlock();
     _mainBlock();
@@ -98,6 +107,5 @@ const menu = ( function() {
     render,
   }
 })();
-
 
 export {menu};
