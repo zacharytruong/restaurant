@@ -8,7 +8,7 @@ import { menu } from './menu/menu.js';
 const createPage = ( function() {
   
   function _init() {
-    menu.render();
+    homepage.render();
   }
 
   _init();

@@ -296,6 +296,22 @@ a {
   to {opacity: 1}
 }
 
+/* Styling Menu Gallery */
+#gallery {
+  max-width: 140rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.figureWrap {
+  text-align: center;
+  max-width: calc(100% / 3);
+  padding: 1rem;
+}
+.figureImg {
+  width: 100%;
+}
 /* Styling footer */
 #footer {
   background: var(--dark-background-color);
@@ -329,7 +345,7 @@ a {
 }
 
 /* Responsive Settings */
-@media all and (max-width: 400px) {
+@media screen and (max-width: 400px) {
   /* Header */
   .mainMenu {
     display: none;
@@ -349,7 +365,11 @@ a {
   .secondCol {
     width: 100%;
   }
-
+  /* Main Content Menu Page */
+  .figureWrap {
+    max-width: 100%;
+    padding: 2rem 1rem;
+  }
   /* Footer  */
   .footerCol {
     width: 100%;

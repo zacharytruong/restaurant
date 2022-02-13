@@ -63,10 +63,12 @@ const blocks = ( function() {
       return element;
     }
   }
-  function createImgFigure(node) {
+  function createImgFigure(node, imgSrc, caption) {
     const figWrap = addElement('div', node, 'figureWrap');
     const img = addElement('img', figWrap, 'figureImg');
+    img.src = imgSrc;
     const h3 = addElement('h3', figWrap, 'figureCaption');
+    h3.textContent = caption.toUpperCase();
     return figWrap;
   }
   function toggleElement(idName, className) {
@@ -84,6 +86,7 @@ const blocks = ( function() {
     newMenuItem,
     displayMenu,
     featureColumn,
+    createImgFigure,
     toggleElement,
     clearPage,
   }
