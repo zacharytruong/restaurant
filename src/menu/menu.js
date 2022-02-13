@@ -1,4 +1,6 @@
 import {blocks} from './../blocks.js';
+import {homepage} from './../homepage/homepage.js';
+import { aboutUs } from './../aboutUs/aboutUs.js';
 import Logo from './resources/TEALAX-transparent.png';
 import backgroundImageSrc from './resources/home-bg-slideshow3.jpg';
 import houseMilkTeaSrc from './resources/mt.house-milk-tea.jpg';
@@ -21,17 +23,16 @@ const menu = ( function() {
     const mainLogo = new Image();
     mainLogo.src = Logo;
     mainLogo.classList.add('mainLogo');
-    const homepageLink = blocks.addElement('a', logoDiv);
-    homepageLink.href = './index.html';
+    const homepageLink = blocks.addElement('a', logoDiv, '', 'mainLogoLink');
     homepageLink.appendChild(mainLogo);
 
     // Create Main Menu Block
     const MenuArr = [];
     const menuDiv = blocks.addElement('div', mainNAv, 'menuDiv');
     const mainMenu = blocks.addElement('menu', menuDiv, 'mainMenu');
-    blocks.newMenuItem(MenuArr, 'features', 'menuList', 'Features');
-    blocks.newMenuItem(MenuArr, 'about', 'menuList', 'About');
-    blocks.newMenuItem(MenuArr, 'menu', 'menuList', 'Menu');
+    blocks.newMenuItem(MenuArr, 'featuresLink', 'menuList', 'Features');
+    blocks.newMenuItem(MenuArr, 'aboutLink', 'menuList', 'About');
+    blocks.newMenuItem(MenuArr, 'menuLink', 'menuList', 'Menu');
     blocks.displayMenu(mainMenu, MenuArr);
 
     // Create mobile menu
@@ -42,9 +43,9 @@ const menu = ( function() {
     mobileMenuIcon.setAttribute('id', 'hamburgerMenu');
     const mobileMenuList = blocks.addElement('menu', mobileMenu, 'mobileMenuList', 'mobileMenuList');
     mobileMenuList.classList.add('hideElement');
-    blocks.newMenuItem(MobileMenuArr, 'features', 'menuList', 'Features');
-    blocks.newMenuItem(MobileMenuArr, 'about', 'menuList', 'About');
-    blocks.newMenuItem(MobileMenuArr, 'menu', 'menuList', 'Menu');
+    const firstMenu = blocks.newMenuItem(MenuArr, 'featuresLink', 'menuList', 'Features');
+    blocks.newMenuItem(MobileMenuArr, 'aboutMLink', 'menuList', 'About');
+    blocks.newMenuItem(MobileMenuArr, 'menuMLink', 'menuList', 'Menu');
     blocks.displayMenu(mobileMenuList, MobileMenuArr);
   });
   

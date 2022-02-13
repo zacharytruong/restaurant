@@ -12,13 +12,6 @@ const blocks = ( function() {
     block.setAttribute('id', name);
     return block;
   }
-  function newMenuLink(id, className, menuName) {
-    const newItem = addElement('li', '', className);
-    const newItemLink = addElement('a', newItem);
-    newItemLink.setAttribute('href', `./#${id}`);
-    newItemLink.innerHTML = menuName;
-    return newItem;
-  }
   function featureColumn(
     node,
     colClassName, 
@@ -47,6 +40,13 @@ const blocks = ( function() {
     const menuItem = blocks.newMenuLink(id, className, menuName);
     arr.push(menuItem);
     return arr;
+  }
+  function newMenuLink(id, className, menuName) {
+    const newItem = addElement('li', '', className);
+    const newItemLink = addElement('a', newItem);
+    newItemLink.setAttribute('id', id);
+    newItemLink.innerHTML = menuName;
+    return newItem;
   }
   function displayMenu(node, arr) {
     for (let i = 0; i < arr.length; i++) {

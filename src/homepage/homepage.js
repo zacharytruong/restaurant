@@ -15,17 +15,17 @@ const homepage = ( function() {
     const mainLogo = new Image();
     mainLogo.src = Logo;
     mainLogo.classList.add('mainLogo');
-    const homepageLink = blocks.addElement('a', logoDiv);
-    homepageLink.href = './index.html';
+    const homepageLink = blocks.addElement('a', logoDiv, '', 'mainLogoLink');
     homepageLink.appendChild(mainLogo);
 
     // Create Main Menu Block
     const MenuArr = [];
     const menuDiv = blocks.addElement('div', mainNAv, 'menuDiv');
     const mainMenu = blocks.addElement('menu', menuDiv, 'mainMenu');
-    blocks.newMenuItem(MenuArr, 'features', 'menuList', 'Features');
-    blocks.newMenuItem(MenuArr, 'about', 'menuList', 'About');
-    blocks.newMenuItem(MenuArr, 'menu', 'menuList', 'Menu');
+    const firstMenu = blocks.newMenuItem(MenuArr, 'featuresLink', 'menuList', 'Features');
+    
+    blocks.newMenuItem(MenuArr, 'aboutLink', 'menuList', 'About');
+    blocks.newMenuItem(MenuArr, 'menuLink', 'menuList', 'Menu');
     blocks.displayMenu(mainMenu, MenuArr);
 
     // Create mobile menu
@@ -36,9 +36,9 @@ const homepage = ( function() {
     mobileMenuIcon.setAttribute('id', 'hamburgerMenu');
     const mobileMenuList = blocks.addElement('menu', mobileMenu, 'mobileMenuList', 'mobileMenuList');
     mobileMenuList.classList.add('hideElement');
-    blocks.newMenuItem(MobileMenuArr, 'features', 'menuList', 'Features');
-    blocks.newMenuItem(MobileMenuArr, 'about', 'menuList', 'About');
-    blocks.newMenuItem(MobileMenuArr, 'menu', 'menuList', 'Menu');
+    blocks.newMenuItem(MobileMenuArr, 'featuresMLink', 'menuList', 'Features');
+    blocks.newMenuItem(MobileMenuArr, 'aboutMLink', 'menuList', 'About');
+    blocks.newMenuItem(MobileMenuArr, 'menuMLink', 'menuList', 'Menu');
     blocks.displayMenu(mobileMenuList, MobileMenuArr);
   });
   
@@ -123,6 +123,7 @@ const homepage = ( function() {
   });
   
   function render() {
+    blocks.clearPage();
     blocks.skeletonHTML();
     _headerBlock();
     _mainBlock();
@@ -133,6 +134,5 @@ const homepage = ( function() {
     render,
   }
 })();
-
 
 export {homepage};

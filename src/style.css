@@ -73,8 +73,16 @@ a {
   height: 100%;
   width: 30%;
 }
+#mainLogoLink:hover {
+  cursor: pointer;
+}
 .mainLogo {
   height: 100%;
+}
+#mainLogoLink:hover > .mainLogo {
+  background-color: var(--dark-background-color);
+  opacity: .2;
+  border-radius: .5rem;
 }
 .menuDiv {
   height: 100%;
@@ -87,11 +95,17 @@ a {
   display: flex;
   justify-content: flex-end;
 }
+.menuList {
+  user-select: none;
+}
 .menuList > a {
   font-size: 2.5rem;
   padding: 1.5rem;
   line-height: 5rem;
   font-family: 'Source Sans Pro', sans-serif;
+}
+.menuList:hover {
+  cursor: pointer;
 }
 .menuList:hover > a {
   color: var(--secondary-text-color);
