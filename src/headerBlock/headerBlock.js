@@ -36,6 +36,7 @@ const headerBlock = ( function() {
     blocks.newMenuItem(MenuArr, 'aboutLink', 'menuList', 'About');
     blocks.newMenuItem(MenuArr, 'menuLink', 'menuList', 'Menu');
     blocks.displayMenu(mainMenu, MenuArr);
+    mainMenu.classList.add('hideElement');
   }
 
   // Render to the DOM

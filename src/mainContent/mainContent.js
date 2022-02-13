@@ -17,7 +17,7 @@ const mainContent = ( function() {
   const mainContent = document.getElementById('mainContent');
 
   // Create sections
-  function _createFeatures() {
+  function createFeatures() {
     const features = blocks.addElement('div', mainContent, '', 'features');
     const featuresHeader = blocks.addElement('h3', features, 'featureHeader');
     featuresHeader.textContent = 'Features';
@@ -55,8 +55,8 @@ const mainContent = ( function() {
       'SWEET'
     );
   }
-  function _createAboutUs() {
-    const aboutUsContainer = blocks.addElement('div', mainContent, 'aboutUsContainer');
+  function createAboutUs() {
+    const aboutUsContainer = blocks.addElement('div', mainContent, 'aboutUsContainer', 'aboutUsContainer');
     const primaryHeader = blocks.addElement('h2', aboutUsContainer, 'primaryHeader');
     primaryHeader.textContent = 'Our Story';
     primaryHeader.style.textTransform = 'uppercase';
@@ -66,7 +66,9 @@ const mainContent = ( function() {
     subHeader.textContent = 'Your delicious tea house since 2019'
 
     // Main block content
-    blocks.addElement('div', aboutUsContainer, 'aboutUsContent', 'aboutUsContent')
+    blocks.addElement('div', aboutUsContainer, 'aboutUsContent', 'aboutUsContent');
+    _createAboutUsFirstCol();
+    _createAboutUsSecondCol();
   }
   function _createAboutUsFirstCol() {
     const firstCol = blocks.addElement('div', aboutUsContent, 'firstCol');
@@ -112,23 +114,30 @@ const mainContent = ( function() {
     secondDot.classList.add('dot');
     thirdDot.classList.add('dot');
   }
-  function _createDrinksMenu() {
+  function createDrinksMenu() {
+    const drinksMenuContainer = blocks.addElement('div', mainContent, 'drinksMenuContainer', 'drinksMenuContainer');
+    const primaryHeader = blocks.addElement('h2', drinksMenuContainer, 'primaryHeader');
+    primaryHeader.textContent = 'MENU';
+    primaryHeader.style.textTransform = 'uppercase';
 
-  }
+    // Sub header
+    const subHeader = blocks.addElement('h4', drinksMenuContainer, 'subHeader');
+    subHeader.innerHTML = '<span>⬡</span> ORGANIC FRUIT <span>⬡</span> HOT AVAILABLE';
 
-  // Render to the DOM
-
-
-  function render() {
-    _createFeatures();
-    _createAboutUs();
-    _createAboutUsFirstCol();
-    _createAboutUsSecondCol();
-    _createDrinksMenu();
+    // Gallery
+    const gallery = blocks.addElement('div', drinksMenuContainer, 'gallery', 'gallery');
+    blocks.createImgFigure(gallery, houseMilkTeaSrc, 'house milk tea');
+    blocks.createImgFigure(gallery, brownSugarMilkTeaSrc, 'brown sugar milk tea');
+    blocks.createImgFigure(gallery, thaiTeaSrc, 'thai tea');
+    blocks.createImgFigure(gallery, vintageBlackMilkTeaSrc, 'vintage black tea milk tea');
+    blocks.createImgFigure(gallery, cheeseJasmineSrc, 'cheese jasmine tippy tea');
+    blocks.createImgFigure(gallery, grapeFruitSrc, 'grapegruit overflow');
   }
 
   return {
-    render,
+    createFeatures,
+    createAboutUs,
+    createDrinksMenu
   }
 
 })();

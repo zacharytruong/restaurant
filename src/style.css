@@ -51,9 +51,9 @@ a {
   font-size: 1.6rem;
 }
 .hideElement {
+  display: none !important;
   opacity: 0;
-  visibility: hidden;
-  transition: opacity .5s linear, visibility .5s linear;
+  transition: opacity .5s linear;
 }
 /* Styling header */
 #header {
@@ -61,7 +61,7 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 50rem;
 }
 #mainNav {
   display: flex;
@@ -124,17 +124,6 @@ a {
   font-size: 4rem;
   color: var(--primary-white-color);
 }
-/* .mobileMenuList {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  transition: opacity .5s linear, visibility .5s linear;
-}
-.mobileMenuList > .menuList > a {
-  margin: 0;
-  padding: 0;
-} */
 /* Styling main body */
 #main {
   margin: 10rem 0;
@@ -198,6 +187,9 @@ a {
 }
 
 /* Styling About Us Page - Main Content */
+.aboutUsContainer {
+  padding: 10rem 0;
+}
 .aboutUsContent {
   width: 100%;
   max-width: 70rem;
@@ -311,8 +303,25 @@ a {
   from {opacity: .4}
   to {opacity: 1}
 }
+.dropDown {
+  -webkit-animation-name: dropDown;
+  -webkit-animation-duration: 1s;
+  animation-name: dropDown;
+  animation-duration: 1s;
+}
+@-webkit-keyframes dropDown {
+  from {display: none;}
+  to {display: flex;}
+}
+@keyframes dropDown {
+  from {display: flex;}
+  to {display: done;}
+}
 
 /* Styling Menu Gallery */
+#drinksMenuContainer {
+  padding: 10rem 0;
+}
 #gallery {
   max-width: 140rem;
   margin: 0 auto;
@@ -361,14 +370,19 @@ a {
 }
 
 /* Responsive Settings */
-@media screen and (max-width: 400px) {
-  /* Header */
-  /* .mainMenu {
-    display: none;
-  } */
-  /* Mobile Menu  */
+@media screen and (max-width: 500px) {
   
-
+  /* Mobile Menu */
+  .menuDiv {
+    display: block;
+    padding: 2rem 0;
+  }
+  .mainMenu {
+    flex-direction: column;
+  }
+  .menuList {
+    text-align: right;
+  }
   /* Main Content */
   #features {
     width: 90%;
@@ -392,14 +406,14 @@ a {
     padding: 2rem 0;
   }
 }
-@media screen and (max-width: 700px) and (min-width: 401px) {
+@media screen and (max-width: 700px) and (min-width: 501px) {
   /* Footer  */
   .footerCol {
     width: 100%;
     padding: 2rem 0;
   }
 }
-@media screen and (min-width: 401px) {
+@media screen and (min-width: 501px) {
   .mobileMenu {
     display: none;
   }
