@@ -63,21 +63,24 @@ a {
   background-position: center;
   height: 100vh;
 }
-.mainNav {
+#mainNav {
   display: flex;
-  height: 100px;
+  height: 15rem;
   max-width: 80%;
   margin: 0 auto;
 }
 .logoDiv {
+  display: flex;
   height: 100%;
   width: 30%;
+  justify-content: center;
+  align-items: center;
 }
 #mainLogoLink:hover {
   cursor: pointer;
 }
 .mainLogo {
-  height: 100%;
+  max-width: 15rem;
 }
 #mainLogoLink:hover > .mainLogo {
   background-color: var(--dark-background-color);
@@ -116,14 +119,12 @@ a {
   display: flex;
   flex-direction: column;
   text-align: right;
-  height: 100%;
-  padding-top: 2rem;
 }
 .mobileMenu > .fa-bars {
   font-size: 4rem;
   color: var(--primary-white-color);
 }
-.mobileMenuList {
+/* .mobileMenuList {
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -133,7 +134,7 @@ a {
 .mobileMenuList > .menuList > a {
   margin: 0;
   padding: 0;
-}
+} */
 /* Styling main body */
 #main {
   margin: 10rem 0;
@@ -141,6 +142,7 @@ a {
 #features {
   width: 70%;
   margin: 0 auto;
+  padding: 10rem 0;
 }
 .featureHeader {
   font-size: 3.5rem;
@@ -361,11 +363,11 @@ a {
 /* Responsive Settings */
 @media screen and (max-width: 400px) {
   /* Header */
-  .mainMenu {
+  /* .mainMenu {
     display: none;
-  }
+  } */
   /* Mobile Menu  */
-
+  
 
   /* Main Content */
   #features {
@@ -384,6 +386,13 @@ a {
     max-width: 100%;
     padding: 2rem 1rem;
   }
+  /* Footer  */
+  .footerCol {
+    width: 100%;
+    padding: 2rem 0;
+  }
+}
+@media screen and (max-width: 700px) and (min-width: 401px) {
   /* Footer  */
   .footerCol {
     width: 100%;

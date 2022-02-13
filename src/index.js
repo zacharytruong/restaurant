@@ -1,59 +1,72 @@
 import './reset.css';
 import './style.css';
-import { blocks } from './blocks.js';
-import { homepage } from './homepage/homepage.js';
-import { aboutUs } from './aboutUs/aboutUs.js';
-import { menu } from './menu/menu.js';
+import { headerBlock } from './headerBlock/headerBlock.js';
+import { mainContent } from './mainContent/mainContent.js';
+import { footerBlock } from './footerBlock/footerBlock.js';
 
 ( function() {
   
   function _init() {
-    menu.render();
+    headerBlock.render();
+    mainContent.render();
+    footerBlock.render();
   }
 
   _init();
+
 })();
 
-const mobileMenu = ( function() {
-
+// Function slide show
+const slideShow = ( function() {
   // Cache DOM
-  const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const slides = Array.from(document.getElementsByClassName('slideShow'));
+    const dots = Array.from(document.getElementsByClassName('dot'));
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
 
-  // Toogle mobile menu
-  hamburgerMenu.addEventListener('click', toggleMenu);
+    // Init
+    let slideIndex = 0;
+    showSlide(slideIndex);
+    
+    // Show slide by SlideIndex
+    function showSlide(n) {
+      slides.map( slide => {
+        slide.style.display = 'none';
+      })
+      dots.map( dot => {
+        dot.classList.remove('active');
+      })
+      if (n > slides.length - 1) {
+        slideIndex = 0;
+      }
+      if ( n < 0) {
+        slideIndex = slides.length - 1;
+      }
+      slides[slideIndex].style.display = 'block';
+      dots[slideIndex].classList.add('active');
+    }
 
-  function toggleMenu() {
-    blocks.toggleElement('mobileMenuList', 'hideElement');
-  }
+    // Show current slide
+    dots.forEach( (dot, index) => {
+      dot.addEventListener('click', function() {
+        currentSlide(index)
+      });
+    })
+    function currentSlide(n) {
+      showSlide(slideIndex = n);
+    }
 
+    // Next or prev slide
+    prev.addEventListener('click', function() {
+      nextSlide(-1);
+    });
+    next.addEventListener('click',function() {
+      nextSlide(1);
+    });
+    function nextSlide(n) {
+      showSlide(slideIndex += n);
+    }
 })();
 
 
-// const loadHomepageFromMainLogo = ( function() {
 
-//   const mainLogoLink = document.getElementById('mainLogoLink');
-//   mainLogoLink.addEventListener('click', homepage.render);
-
-//   console.log('click on logo')
-
-// })();
-
-// const menuLinks = ( function() {
-
-//   const featuresLink = document.getElementById('featuresLink');
-//   const aboutLink = document.getElementById('aboutLink');
-//   const menuLink = document.getElementById('menuLink');
-
-//   featuresLink.addEventListener('click', homepage.render);
-//   aboutLink.addEventListener('click', aboutUs.render);
-//   menuLink.addEventListener('click', menu.render);
-
-//   const featuresMLink = document.getElementById('featuresMLink');
-//   const aboutMLink = document.getElementById('aboutMLink');
-//   const menuMLink = document.getElementById('menuMLink');
-
-//   featuresMLink.addEventListener('click', homepage.render);
-//   aboutMLink.addEventListener('click', aboutUs.render);
-//   menuMLink.addEventListener('click', menu.render);
-
-// })();
