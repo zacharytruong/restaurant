@@ -5,7 +5,6 @@ import backgroundImageSrc from './resources/home-bg-slideshow1.jpg';
 const headerBlock = ( function() {
 
   // Cache DOM
-  // const header = document.getElementById('header');
 
   // Creating sections
   function _styleHeaderBlock() {
@@ -32,11 +31,11 @@ const headerBlock = ( function() {
     const MenuArr = [];
     const menuDiv = document.querySelector('.menuDiv');
     const mainMenu = blocks.addElement('menu', menuDiv, 'mainMenu');
+    // mainMenu.classList.add('dropDown');
     blocks.newMenuItem(MenuArr, 'featuresLink', 'menuList', 'Features');
     blocks.newMenuItem(MenuArr, 'aboutLink', 'menuList', 'About');
     blocks.newMenuItem(MenuArr, 'menuLink', 'menuList', 'Menu');
     blocks.displayMenu(mainMenu, MenuArr);
-    mainMenu.classList.add('hideElement');
   }
 
   // Render to the DOM

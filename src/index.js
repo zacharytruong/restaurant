@@ -34,7 +34,7 @@ import { footerBlock } from './footerBlock/footerBlock.js';
     drinksMenuContainer.classList.remove('hideElement');
   }
   function _showMobileMenu() {
-    mainMenu.classList.toggle('hideElement');
+    mainMenu.classList.toggle('dropDown');
   }
   function _init() {
     headerBlock.render();

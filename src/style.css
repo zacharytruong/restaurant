@@ -53,7 +53,10 @@ a {
 .hideElement {
   display: none !important;
   opacity: 0;
-  transition: opacity .5s linear;
+  /* transition: opacity .5s linear; */
+}
+.showElement {
+  display: flex !important;
 }
 /* Styling header */
 #header {
@@ -305,19 +308,23 @@ a {
 }
 .dropDown {
   -webkit-animation-name: dropDown;
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: .3s;
   animation-name: dropDown;
-  animation-duration: 1s;
+  animation-duration: .3s;
+  display: flex !important;
 }
 @-webkit-keyframes dropDown {
-  from {display: none;}
-  to {display: flex;}
+  from {height: 0;
+      transform: translateY(0)}
+  to {height: 15rem;
+      transform: translateY(0)}
 }
 @keyframes dropDown {
-  from {display: flex;}
-  to {display: done;}
+  from {height: 0;
+      transform: translateY(0)}
+  to {height: 15rem;
+      transform: translateY(0)}
 }
-
 /* Styling Menu Gallery */
 #drinksMenuContainer {
   padding: 10rem 0;
@@ -378,10 +385,15 @@ a {
     padding: 2rem 0;
   }
   .mainMenu {
+    display: none;
     flex-direction: column;
-  }
-  .menuList {
+    justify-content: flex-end;
     text-align: right;
+    background-color: rgba(255, 255, 255, .7);
+    border-radius: 1rem;
+  }
+  .mainMenu a {
+    color: var(--primary-text-color)
   }
   /* Main Content */
   #features {
