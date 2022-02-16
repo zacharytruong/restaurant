@@ -1,7 +1,9 @@
 import './reset.css';
 import './style.css';
 import { headerBlock } from './headerBlock/headerBlock.js';
-import { mainContent } from './mainContent/mainContent.js';
+import { features } from './features/features.js';
+import { aboutUs } from './aboutUs/aboutUs.js';
+import { drinksMenu } from './drinksMenu/drinksMenu.js';
 import { footerBlock } from './footerBlock/footerBlock.js';
 
 ( function() {
@@ -19,34 +21,29 @@ import { footerBlock } from './footerBlock/footerBlock.js';
   mobileMenu.addEventListener('click', _showMobileMenu);
 
   function _showFeatures() {
-    features.classList.remove('hideElement');
-    aboutUsContainer.classList.add('hideElement');
-    drinksMenuContainer.classList.add('hideElement');
+    mainContent.innerHTML = '';
+    features.createFeatures();
   }
   function _showAboutUs() {
-    features.classList.add('hideElement');
-    aboutUsContainer.classList.remove('hideElement');
-    drinksMenuContainer.classList.add('hideElement');
+    while (mainContent.firstChild) {
+      mainContent.removeChild(mainContent.firstChild);
+    }
+    aboutUs.createAboutUs();
   }
   function _showDrinksMenu() {
-    features.classList.add('hideElement');
-    aboutUsContainer.classList.add('hideElement');
-    drinksMenuContainer.classList.remove('hideElement');
+    mainContent.innerHTML = '';
+    drinksMenu.createDrinksMenu();
   }
   function _showMobileMenu() {
     mainMenu.classList.toggle('dropDown');
   }
   function _init() {
     headerBlock.render();
-    mainContent.createFeatures();
-    mainContent.createAboutUs();
-    mainContent.createDrinksMenu();
-    _showFeatures();
+    features.createFeatures();
     footerBlock.render();
   }
   
 })();
-
 
 // Function slide show
 const slideShow = ( function() {
@@ -80,6 +77,7 @@ const slideShow = ( function() {
         slides[slideIndex].style.display = 'block';
         dots[slideIndex].classList.add('active');
       }
+      
     }
 
     // Show current slide

@@ -75,9 +75,7 @@ const blocks = ( function() {
     const node = document.getElementById(idName);
     node.classList.toggle(className);
   }
-  function clearPage() {
-    _mainContent.innerHTML = '';
-  }
+
   return {
     skeletonHTML,
     addElement,
@@ -88,7 +86,6 @@ const blocks = ( function() {
     featureColumn,
     createImgFigure,
     toggleElement,
-    clearPage,
   }
 } )();
 
