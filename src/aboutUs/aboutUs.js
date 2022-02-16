@@ -74,6 +74,51 @@ const aboutUs = ( function() {
     firstDot.classList.add('dot');
     secondDot.classList.add('dot');
     thirdDot.classList.add('dot');
+
+    // Create slide show
+    const slides = Array.from(document.getElementsByClassName('slideShow'));
+    const dotsArr = Array.from(document.getElementsByClassName('dot'));
+    const prevArrow = document.getElementById('prev');
+    const nextArrow = document.getElementById('next');
+    let slideIndex = 0;
+    _showSlide(slideIndex);
+    function _showSlide(n) {
+      slides.map( slide => {
+        slide.style.display = 'none';
+      })
+      dotsArr.map( dot => {
+        dot.classList.remove('active');
+      })
+      if (n > slides.length - 1) {
+        slideIndex = 0;
+      }
+      if ( n < 0) {
+        slideIndex = slides.length - 1;
+      }
+      slides[slideIndex].style.display = 'block';
+      dotsArr[slideIndex].classList.add('active');
+    }
+
+    // Show current slide
+    dotsArr.forEach( (dot, index) => {
+      dot.addEventListener('click', function() {
+        _currentSlide(index)
+      });
+    })
+    function _currentSlide(n) {
+      _showSlide(slideIndex = n);
+    }
+
+    // Next or prev slide
+    prevArrow.addEventListener('click', function() {
+      nextSlide(-1);
+    });
+    nextArrow.addEventListener('click',function() {
+      nextSlide(1);
+    });
+    function nextSlide(n) {
+      _showSlide(slideIndex += n);
+    }
   }
 
   return {
