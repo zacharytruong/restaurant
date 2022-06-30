@@ -9,3 +9,5 @@ Demonstrated skills:
 * Javascript:
   * DOM manipulation
   * Creating elements/objects dynamically
+  
+  Live Demo: https://zacharytruong.github.io/restaurant/
